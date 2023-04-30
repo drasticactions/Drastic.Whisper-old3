@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:common="clr-namespace:Drastic.Whisper.UI.Translations;assembly=Drastic.Whisper.UI"
+             x:Class="Drastic.WhisperMauiSample.MainPage">
+
+    <Grid Margin="15"
+         RowSpacing="5"
+         RowDefinitions="Auto, Auto, *">
+        <Grid Grid.Row="0" RowDefinitions="50, Auto, 50, Auto, Auto" RowSpacing="5">
+            <Grid ColumnSpacing="5" Grid.Row="0" ColumnDefinitions="Auto, *">
+                <Label VerticalOptions="Center" Text="{x:Static common:Common.ModelTextLabel}" />
+                <Entry HorizontalOptions="Fill" Grid.Column="1" Placeholder="ggml-medium.bin" Text="{Binding ModelFile, Mode=TwoWay}" />
+            </Grid>
+            <Button Grid.Row="1" x:Name="PickAModelButton" Clicked="PickAModelButton_Clicked" Text="{x:Static common:Common.OpenModelButton}" />
+            <Grid ColumnSpacing="5" Grid.Row="2" ColumnDefinitions="Auto, Auto, *">
+                <Label VerticalOptions="Center" Text="{x:Static common:Common.PathTextLabel}" />
+                <Entry HorizontalOptions="Fill" Grid.Column="2" Placeholder="{x:Static common:Common.FileExamplePlaceholder}" Text="{Binding UrlField, Mode=TwoWay}" />
+            </Grid>
+            <Button  Grid.Row="3" x:Name="PickAFileButton" Clicked="PickAFileButton_Clicked" Text="{x:Static common:Common.OpenFileButton}"/>
+            <Grid ColumnSpacing="5" Grid.Row="4" ColumnDefinitions="Auto, Auto">
+                <Label VerticalOptions="Center" Text="{x:Static common:Common.LanguageLabel}" />
+                <Picker Grid.Column="1" ItemsSource="{Binding WhisperLanguages}" ItemDisplayBinding="{Binding Language}" SelectedItem="{Binding SelectedLanguage}" />
+            </Grid>
+        </Grid>
+        <HorizontalStackLayout Grid.Row="1" Spacing="5">
+            <Button Text="Sampleを書き起こす" Command="{Binding SampleCommand}" />
+            <Button Text="ファイルやURLを書き起こす" Command="{Binding DebugCommand}" />
+        </HorizontalStackLayout>
+        <ListView HasUnevenRows="True" Grid.Row="2" ItemsSource="{Binding Subtitles}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid RowDefinitions="*, Auto">
+                                <Label Text="{Binding Text}" />
+                                <Label FontSize="Caption" Grid.Row="1" Text="{Binding Time}" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+    </Grid>
+</ContentPage>

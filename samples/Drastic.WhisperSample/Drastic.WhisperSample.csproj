@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Models\ggml-tiny.bin" />
+    <None Remove="Samples\" />
+    <None Remove="Samples\jfk.wav" />
+    <None Remove="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Models\ggml-tiny.bin" />
+    <EmbeddedResource Include="Samples\jfk.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Samples\" />
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Drastic.Utilities" Version="1.0.10" />
+    <PackageReference Include="Whisper.net" Version="1.3.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Drastic.Whisper.UI\Drastic.Whisper.UI.csproj" />
+  </ItemGroup>
+</Project>
