@@ -30,10 +30,30 @@ namespace Drastic.Whisper.Services
         public void InitModel(string path, WhisperLanguage language)
         {
             this.factory = WhisperFactory.FromPath(path);
-            this.processor = this.factory.CreateBuilder()
-                    .WithLanguage(language.LanguageCode)
-                    .WithSegmentEventHandler(this.OnNewSegment)
-                    .Build();
+            this.processor = this.SetupProcessor(this.factory, language);
+        }
+
+        public void InitModel(byte[] buffer, WhisperLanguage language)
+        {
+            this.factory = WhisperFactory.FromBuffer(buffer);
+            this.processor = this.SetupProcessor(this.factory, language);
+        }
+
+        private WhisperProcessor SetupProcessor(WhisperFactory factory, WhisperLanguage language)
+        {
+            int max_threads = Math.Min(8, Environment.ProcessorCount);
+            var builder = factory.CreateBuilder();
+            if (language.IsAutomatic)
+            {
+                builder.WithLanguage("auto");
+            }
+            else
+            {
+                builder.WithLanguage(language.LanguageCode);
+            }
+            return builder.WithSegmentEventHandler(this.OnNewSegment).
+                WithThreads(max_threads)
+                .Build();
         }
 
         protected virtual void Dispose(bool disposing)
@@ -53,16 +73,6 @@ namespace Drastic.Whisper.Services
         private void OnNewSegment(SegmentData e)
         {
             this.OnNewWhisperSegment?.Invoke(this, new OnNewSegmentEventArgs(new Models.WhisperSegmentData(e.Text, e.Start, e.End, e.MinProbability, e.MaxProbability, e.Probability, e.Language)));
-        }
-
-        public void InitModel(byte[] buffer, WhisperLanguage language)
-        {
-            // int max_threads = Math.Min(8, Environment.ProcessorCount);
-            this.factory = WhisperFactory.FromBuffer(buffer);
-            this.processor = this.factory.CreateBuilder()
-                    .WithLanguage(language.LanguageCode)
-                    .WithSegmentEventHandler(this.OnNewSegment)
-                    .Build();
         }
 
         public Task ProcessAsync(string filePath, CancellationToken? cancellationToken = null)

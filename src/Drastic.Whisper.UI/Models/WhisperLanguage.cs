@@ -42,7 +42,7 @@ namespace Drastic.Whisper.Models
             this.IsAutomatic = true;
             this.CultureInfo = CultureInfo.CurrentCulture;
             this.LanguageCode = CultureInfo.CurrentCulture.TwoLetterISOLanguageName;
-            this.Language = string.Format(UI.Translations.Common.LanguageAuto, CultureInfo.CurrentCulture.DisplayName);
+            this.Language = UI.Translations.Common.LanguageAuto;
         }
 
         public static IReadOnlyList<WhisperLanguage> GenerateWhisperLangauages()

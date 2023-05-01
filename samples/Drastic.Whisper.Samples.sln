@@ -3,19 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drastic.Whisper.UI", "..\src\Drastic.Whisper.UI\Drastic.Whisper.UI.csproj", "{46EE8CF4-0F1C-4B5F-B82A-1BA3705645F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drastic.Whisper.UI", "..\src\Drastic.Whisper.UI\Drastic.Whisper.UI.csproj", "{46EE8CF4-0F1C-4B5F-B82A-1BA3705645F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drastic.WhisperMauiSample", "Drastic.WhisperMauiSample\Drastic.WhisperMauiSample.csproj", "{F47452A3-EA32-4BE9-A030-0E4BCBF717B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drastic.WhisperMauiSample", "Drastic.WhisperMauiSample\Drastic.WhisperMauiSample.csproj", "{F47452A3-EA32-4BE9-A030-0E4BCBF717B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drastic.WhisperSample", "Drastic.WhisperSample\Drastic.WhisperSample.csproj", "{4BE10AEF-97CD-497E-BBE5-F9F24B4D0DA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drastic.WhisperSample", "Drastic.WhisperSample\Drastic.WhisperSample.csproj", "{4BE10AEF-97CD-497E-BBE5-F9F24B4D0DA6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drastic.WhisperTranscribe", "Drastic.WhisperTranscribe\Drastic.WhisperTranscribe.csproj", "{D4782E30-69F4-4B87-AFFC-3F9BE400BAC9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{46EE8CF4-0F1C-4B5F-B82A-1BA3705645F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -24,11 +23,22 @@ Global
 		{46EE8CF4-0F1C-4B5F-B82A-1BA3705645F6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F47452A3-EA32-4BE9-A030-0E4BCBF717B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F47452A3-EA32-4BE9-A030-0E4BCBF717B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F47452A3-EA32-4BE9-A030-0E4BCBF717B9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{F47452A3-EA32-4BE9-A030-0E4BCBF717B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F47452A3-EA32-4BE9-A030-0E4BCBF717B9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4BE10AEF-97CD-497E-BBE5-F9F24B4D0DA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4BE10AEF-97CD-497E-BBE5-F9F24B4D0DA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BE10AEF-97CD-497E-BBE5-F9F24B4D0DA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BE10AEF-97CD-497E-BBE5-F9F24B4D0DA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4782E30-69F4-4B87-AFFC-3F9BE400BAC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4782E30-69F4-4B87-AFFC-3F9BE400BAC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4782E30-69F4-4B87-AFFC-3F9BE400BAC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4782E30-69F4-4B87-AFFC-3F9BE400BAC9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1970BEE9-CE7A-44F8-A877-1F65A9C9ECD5}
 	EndGlobalSection
 EndGlobal

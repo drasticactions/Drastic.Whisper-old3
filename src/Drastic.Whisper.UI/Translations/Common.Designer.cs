@@ -142,7 +142,7 @@ namespace Drastic.Whisper.UI.Translations {
         }
         
         /// <summary>
-        ///   自動 ({0}) に類似しているローカライズされた文字列を検索します。
+        ///   自動 に類似しているローカライズされた文字列を検索します。
         /// </summary>
         public static string LanguageAuto {
             get {

@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Drastic.WhisperMauiSample", "Drastic.WhisperMauiSample.csproj", "{FEC9431E-7324-4CD8-8B88-31472DCB4D38}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drastic.Whisper", "..\..\src\Drastic.Whisper\Drastic.Whisper.csproj", "{7604CFAD-3648-4DF9-8F52-71E1F04514BB}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drastic.WhisperSample", "..\Drastic.WhisperSample\Drastic.WhisperSample.csproj", "{DD60D141-646D-4BAB-B60F-1E9A2E20ED53}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Drastic.Whisper.UI", "..\..\src\Drastic.Whisper.UI\Drastic.Whisper.UI.csproj", "{801E6E8B-424D-452D-B7AB-8A38CE428E16}"
@@ -23,10 +21,6 @@ Global
 		{FEC9431E-7324-4CD8-8B88-31472DCB4D38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEC9431E-7324-4CD8-8B88-31472DCB4D38}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FEC9431E-7324-4CD8-8B88-31472DCB4D38}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{7604CFAD-3648-4DF9-8F52-71E1F04514BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7604CFAD-3648-4DF9-8F52-71E1F04514BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7604CFAD-3648-4DF9-8F52-71E1F04514BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7604CFAD-3648-4DF9-8F52-71E1F04514BB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DD60D141-646D-4BAB-B60F-1E9A2E20ED53}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DD60D141-646D-4BAB-B60F-1E9A2E20ED53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD60D141-646D-4BAB-B60F-1E9A2E20ED53}.Release|Any CPU.ActiveCfg = Release|Any CPU

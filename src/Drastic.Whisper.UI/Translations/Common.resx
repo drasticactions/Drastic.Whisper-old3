@@ -145,7 +145,7 @@
     <value>字幕を生成しています。</value>
   </data>
   <data name="LanguageAuto" xml:space="preserve">
-    <value>自動 ({0})</value>
+    <value>自動</value>
   </data>
   <data name="LanguageLabel" xml:space="preserve">
     <value>言語:</value>
