@@ -22,7 +22,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Drastic.Utilities" Version="1.0.10" />
-    <PackageReference Include="Whisper.net" Version="1.3.0.2" />
+    <PackageReference Include="Whisper.net" Version="1.4.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\src\Drastic.Whisper.UI\Drastic.Whisper.UI.csproj" />
