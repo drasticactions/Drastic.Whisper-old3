@@ -24,7 +24,6 @@ public static class MauiProgram
         var basePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Drastic.Whisper");
         var generatedFilename = "generated";
         var builder = MauiApp.CreateBuilder();
-
         builder.Services.AddSingleton<IAppDispatcher, MauiAppDispatcher>()
             .AddSingleton<IErrorHandlerService, MauiErrorHandler>()
             .AddSingleton<IWhisperService, DefaultWhisperService>()

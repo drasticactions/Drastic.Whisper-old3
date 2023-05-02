@@ -24,6 +24,7 @@
             </Grid>
         </Grid>
         <HorizontalStackLayout Grid.Row="1" Spacing="5">
+            <Button Text="録音" Command="{Binding RecordCommand}"/>
             <Button Text="Sampleを書き起こす" Command="{Binding SampleCommand}" />
             <Button Text="ファイルやURLを書き起こす" Command="{Binding DebugCommand}" />
         </HorizontalStackLayout>

@@ -3,6 +3,7 @@
 // </copyright>
 
 using System;
+using Drastic.AudioRecorder;
 using Drastic.Whisper.Models;
 
 namespace Drastic.Whisper.Services
@@ -20,6 +21,8 @@ namespace Drastic.Whisper.Services
         Task ProcessAsync(byte[] buffer, CancellationToken? cancellationToken = default);
 
         Task ProcessAsync(Stream stream, CancellationToken? cancellationToken = default);
+
+        Task ProcessBytes(byte[] bytes, CancellationToken? cancellationToken = default);
 
         void InitModel(string path, WhisperLanguage lang);
 

@@ -4,6 +4,7 @@
 
 using Whisper.net;
 using Drastic.Whisper.Models;
+using Drastic.AudioRecorder;
 
 namespace Drastic.Whisper.Services
 {
@@ -12,6 +13,10 @@ namespace Drastic.Whisper.Services
         private bool disposedValue;
         private WhisperFactory? factory;
         private WhisperProcessor? processor;
+        const int audioSampleLengthS = 1;
+        const int audioSampleLengthMs = audioSampleLengthS * 1000;
+        const int totalBufferLength = 30 / audioSampleLengthS;
+        List<float[]> slidingBuffer = new(totalBufferLength + 1);
 
         public event EventHandler<OnNewSegmentEventArgs>? OnNewWhisperSegment;
 
@@ -104,5 +109,35 @@ namespace Drastic.Whisper.Services
                 },
                 cancellationToken ?? CancellationToken.None);
         }
+
+        public Task ProcessBytes(byte[] e, CancellationToken? cancellationToken = null)
+        {
+            ArgumentNullException.ThrowIfNull(this.processor);
+
+            var values = new short[e.Length / 2];
+            Buffer.BlockCopy(e, 0, values, 0, e.Length);
+            var samples = values.Select(x => x / (short.MaxValue + 1f)).ToArray();
+
+            var silenceCount = samples.Count(x => IsSilence(x, -40));
+
+            if (silenceCount < values.Length - values.Length / 12)
+            {
+                slidingBuffer.Add(samples);
+
+                if (slidingBuffer.Count > totalBufferLength)
+                {
+                    slidingBuffer.RemoveAt(0);
+                }
+
+                processor.Process(slidingBuffer.SelectMany(x => x).ToArray());
+            }
+
+            return Task.CompletedTask;
+        }
+
+        static bool IsSilence(float amplitude, sbyte threshold)
+            => GetDecibelsFromAmplitude(amplitude) < threshold;
+
+        static double GetDecibelsFromAmplitude(float amplitude) => 20 * Math.Log10(Math.Abs(amplitude));
     }
 }

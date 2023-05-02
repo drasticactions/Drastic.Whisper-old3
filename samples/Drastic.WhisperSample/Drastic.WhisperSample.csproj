@@ -9,18 +9,20 @@
   <ItemGroup>
     <None Remove="Models\ggml-tiny.bin" />
     <None Remove="Samples\" />
+    <None Remove="Samples\buffalo.wav" />
     <None Remove="Samples\jfk.wav" />
     <None Remove="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Models\ggml-tiny.bin" />
+    <EmbeddedResource Include="Samples\buffalo.wav" />
     <EmbeddedResource Include="Samples\jfk.wav" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Samples\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Drastic.AudioRecorder" Version="1.0.2" />
     <PackageReference Include="Drastic.Utilities" Version="1.0.10" />
     <PackageReference Include="Whisper.net" Version="1.4.0" />
   </ItemGroup>
