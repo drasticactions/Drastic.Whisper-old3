@@ -1,12 +1,10 @@
-﻿using Drastic.AudioRecorder;
-using Drastic.Tools;
+﻿using Drastic.Tools;
 using Drastic.Whisper.Models;
 using Drastic.Whisper.Services;
 using Drastic.Whisper.UI.Services;
 using Drastic.Whisper.UI.Tools;
 using Drastic.Whisper.UI.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json.Linq;
 
 namespace Drastic.WhisperSample.ViewModels
 {
@@ -25,7 +23,6 @@ namespace Drastic.WhisperSample.ViewModels
         private ITranscodeService transcodeService;
         private YouTubeService youTubeService;
         private AsyncCommand? recordCommand;
-        private AudioRecorderService recorder;
 
         public DebugViewModel(IServiceProvider services)
             : base(services)
@@ -38,17 +35,6 @@ namespace Drastic.WhisperSample.ViewModels
             this.selectedLanguage = this.WhisperLanguages[0];
             this.transcodeService = this.Services.GetRequiredService<ITranscodeService>();
             this.UrlField = "https://www.youtube.com/shorts/baYXWcVHZ-s";
-            this.recorder = new AudioRecorderService
-            {
-                PreferredSampleRate = 16000,
-                StopRecordingAfterTimeout = false,
-            };
-            this.recorder.OnBroadcast += Recorder_OnBroadcast;
-        }
-
-        private void Recorder_OnBroadcast(object? sender, byte[] e)
-        {
-            this.whisper.ProcessBytes(e);
         }
 
         public IReadOnlyList<WhisperLanguage> WhisperLanguages { get; }
@@ -139,10 +125,8 @@ namespace Drastic.WhisperSample.ViewModels
             {
                 this.whisper.InitModel(this.modelFile, this.SelectedLanguage);
             }
-
-            var audioRecordTask = await this.recorder.StartRecording();
         }
-        
+
         public Task SampleAsync()
         {
             this.Setup();

@@ -3,7 +3,6 @@
 // </copyright>
 
 using System;
-using Drastic.AudioRecorder;
 using Drastic.Whisper.Models;
 
 namespace Drastic.Whisper.Services

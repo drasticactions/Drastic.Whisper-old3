@@ -4,7 +4,6 @@
 
 using Whisper.net;
 using Drastic.Whisper.Models;
-using Drastic.AudioRecorder;
 
 namespace Drastic.Whisper.Services
 {
